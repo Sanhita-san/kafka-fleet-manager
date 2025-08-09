@@ -1,0 +1,27 @@
+.card {
+  border-radius: 8px;
+  border: 1px solid lightgray;
+  padding: 20px;
+  width: calc(100% / 3);
+}
+
+.cardHeader {
+  display: flex;
+  gap: 10px;
+  color: var(--primary-color);
+}
+
+.cardBody {
+  margin-top: 20px;
+}
+
+.cardBody table {
+  width: 100%;
+  border-spacing: 5px;
+}
+
+.cardBody th {
+  color: grey;
+  text-align: left;
+  font-weight: normal;
+}

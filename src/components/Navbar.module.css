@@ -1,0 +1,37 @@
+.navbar {
+  border-right: 1px solid lightgray;
+  width: 60px;
+  height: 100dvh;
+  position: fixed;
+}
+
+.navbar .menuIcon {
+  width: 100%;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.navbar ul {
+  list-style: none;
+  text-align: center;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.navbar li {
+  color: #287db4;
+  background-color: white;
+  padding: 6px;
+}
+.navbar li:hover {
+  background-color: #287db4;
+  color: white;
+}
+.bottomNav {
+  position: absolute;
+  bottom: 0;
+}
+
+.icon {
+  font-size: 24px;
+}
