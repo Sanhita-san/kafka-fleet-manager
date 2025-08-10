@@ -1,9 +1,14 @@
-import Navbar from "./components/Navbar";
+// import styles from "./App.module.css";
+import Dashboard from "./components/Dashboard";
+import Navbar from "./components/navbar/Navbar";
+import Header from "./components/header/Header";
 
 function App() {
   return (
     <div>
       <Navbar />
+      <Header />
+      <Dashboard />
     </div>
   );
 }

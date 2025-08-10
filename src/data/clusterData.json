@@ -1,0 +1,10 @@
+[
+  { "label": "Cluster ID", "value": "9a02fc10-2f00-45b9-a0ff-2ff9bbbe8d61" },
+  { "label": "SKU", "value": "STRIMZI/Shared" },
+  { "label": "Organization", "value": "acme" },
+  { "label": "Date Created", "value": "Jun 17, 2025, 11:53 AM" },
+  { "label": "Date Modified", "value": "Jun 17, 2025, 12:05 PM" },
+  { "label": "Infrastructure", "value": "different-aardwolf" },
+  { "label": "Version", "value": "3.8.0" },
+  { "label": "Status", "value": "Healthy" }
+]
