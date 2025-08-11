@@ -35,6 +35,7 @@ a {
 
 .icon {
   font-size: 18px;
+  color: var(--color-primary);
 }
 
 .moreIcon {
@@ -92,6 +93,7 @@ a {
 
 .linksItem {
   display: flex;
+  gap: 5px;
 }
 
 /* For Sections Card */
@@ -111,6 +113,7 @@ a {
 .buttons {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .actionButton {
@@ -118,11 +121,74 @@ a {
   color: var(--color-primary);
 
   border: 1px solid var(--color-primary);
-  border-radius: 5px;
+  border-radius: 3px;
   outline: none;
 
-  padding: 5px 8px;
+  padding: 5px 10px;
   cursor: pointer;
+
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* For Table Card */
+.tableInfo {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  border-spacing: 0px;
+  overflow: hidden;
+}
+
+.table th {
+  background: #f0f0f0;
+  font-weight: 500;
+  text-align: left;
+  padding: 15px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.table td {
+  padding: 15px;
+  border-bottom: 2px solid #f0f0f0;
+  word-break: keep-all;
+  white-space: nowrap;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tr:hover {
+  background: #fafafa;
+}
+
+.tableFooter {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.endpointButton {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+  font-size: 14px;
+  font-weight: 400;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.endpointButton:hover {
+  background-color: var(--color-primary);
+  opacity: 80%;
 }
 
 @media screen and (max-width: 960px) {

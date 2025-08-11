@@ -1,13 +1,26 @@
 import { FaCloud } from "react-icons/fa";
-import { MdBarChart } from "react-icons/md";
+import {
+  MdBarChart,
+  MdHealthAndSafety,
+  MdTerminal,
+  MdVerticalAlignBottom,
+  MdLegendToggle,
+  MdOutlineUpgrade,
+} from "react-icons/md";
+
 import { MdEqualizer } from "react-icons/md";
 import { MdBusiness } from "react-icons/md";
 import { BsGrid1X2Fill } from "react-icons/bs";
+import { MdAttachMoney } from "react-icons/md";
+import { MdLink } from "react-icons/md";
+
+import { MdTimeline } from "react-icons/md";
 
 export const cards = [
   {
     title: "Cluster Info",
     icon: FaCloud,
+    actionsMenu: true,
     fields: [
       {
         label: "Cluster ID",
@@ -21,11 +34,11 @@ export const cards = [
       { label: "Version", value: "3.8.0" },
       { label: "Status", value: "Healthy" },
     ],
-    actionsMenu: true,
   },
   {
     title: "Performance",
     icon: MdBarChart,
+    span: true,
     gauges: [
       { label: "Production", value: 0, text: "0 B/s" },
       { label: "Consumption", value: 0, text: "0 B/s" },
@@ -35,6 +48,7 @@ export const cards = [
   {
     title: "Kubernetes Fleet Info",
     icon: MdBusiness,
+    actionsMenu: true,
     fields: [
       { label: "Identifier", value: "different-aardwolf" },
       { label: "Fleet provider", value: "" },
@@ -42,15 +56,14 @@ export const cards = [
       { label: "Date Created", value: "Jun 17, 2025, 10:33 AM" },
       { label: "Status", value: "Healthy" },
     ],
-    actionsMenu: true,
   },
   {
     title: "Dashboards",
     icon: MdEqualizer,
     links: [
-      { label: "Cluster Health", type: "link" },
-      { label: "Kraft Metrics", type: "link" },
-      { label: "Strimzi Kafka Logs", type: "link" },
+      { label: "Cluster Health", icon: MdTimeline },
+      { label: "Kraft Metrics", icon: MdTimeline },
+      { label: "Strimzi Kafka Logs", icon: MdTimeline },
     ],
   },
   {
@@ -59,16 +72,70 @@ export const cards = [
     sections: [
       {
         label: "",
-        buttons: ["Upgrade", "Fleet Health Agent", "Benchstress"],
+        buttons: [
+          { label: "Upgrade", icon: MdOutlineUpgrade },
+          { label: "Fleet Health Agent", icon: MdHealthAndSafety },
+          { label: "Benchstress", icon: MdLegendToggle },
+        ],
       },
       {
         label: "Audit Logs",
-        buttons: ["Execution Logs", "Health Reports", "Benchmark Reports"],
+        buttons: [
+          { label: "Execution Logs", icon: MdTerminal },
+          { label: "Health Reports", icon: MdHealthAndSafety },
+          { label: "Benchmark Reports", icon: MdLegendToggle },
+        ],
       },
       {
         label: "Downloads",
-        buttons: ["Manifest"],
+        buttons: [{ label: "Manifest", icon: MdVerticalAlignBottom }],
       },
     ],
+  },
+  { title: "Billing", icon: MdAttachMoney },
+  {
+    title: "Endpoints",
+    icon: MdLink,
+    span: true,
+    table: {
+      columns: ["Type", "Address", "DNS Record"],
+      rows: [
+        [
+          "prometheus",
+          "prometheus-competitive-opossum.sathish.fleet-manager.platformotry.io",
+          "a44a4668a8f94b61935486fc8b05d7-1888045592.us-east-1.elb.amazonaws.com",
+        ],
+        [
+          "loki",
+          "loki-competitive-opossum.sathish.fleet-manager.platformotry.io",
+          "a44a4668a8f94b61935486fc8b05d7-1888045592.us-east-1.elb.amazonaws.com",
+        ],
+        [
+          "bootstrap_server",
+          "brief-galliform-bootstrap.sathish.fleet-manager.platformotry.io:443",
+          "a8fd66da6c6c945e4beec0c9fd1eff14f7-1147938221.us-east-1.elb.amazonaws.com",
+        ],
+        [
+          "bootstrap_server_0",
+          "brief-galliform-b0.sathish.fleet-manager.platformotry.io:443",
+          "a8fd66da6c6c945e4beec0c9fd1eff14f7-1147938221.us-east-1.elb.amazonaws.com",
+        ],
+        [
+          "bootstrap_server_1",
+          "brief-galliform-b1.sathish.fleet-manager.platformotry.io:443",
+          "a8fd66da6c6c945e4beec0c9fd1eff14f7-1147938221.us-east-1.elb.amazonaws.com",
+        ],
+        [
+          "bootstrap_server_2",
+          "brief-galliform-b2.sathish.fleet-manager.platformotry.io:443",
+          "a8fd66da6c6c945e4beec0c9fd1eff14f7-1147938221.us-east-1.elb.amazonaws.com",
+        ],
+        [
+          "internal_bootstrap_server",
+          "kafka-fm-kafka-bootstrap.brief-galliform.svc.cluster.local:9092",
+          "-",
+        ],
+      ],
+    },
   },
 ];

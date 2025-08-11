@@ -11,12 +11,12 @@ const Card = ({
   links,
   sections,
   actionsMenu,
+  table,
+  span,
 }) => {
   const Icon = icon;
   return (
-    <div
-      className={`${styles.card} ${gauges ? styles.spanTwo : styles.spanOne}`}
-    >
+    <div className={`${styles.card} ${span ? styles.spanTwo : styles.spanOne}`}>
       <div className={styles.cardHeader}>
         <Icon className={styles.icon} />
         <h3>{title}</h3>
@@ -26,6 +26,7 @@ const Card = ({
       </div>
 
       <div className={styles.cardBody}>
+        {/* Fields */}
         {fields && (
           <dl className={styles.fieldsList}>
             {fields.map((data, index) => {
@@ -39,6 +40,7 @@ const Card = ({
           </dl>
         )}
 
+        {/* Gauges */}
         {gauges && (
           <div className={styles.gaugeList}>
             {gauges.map((data, index) => {
@@ -52,18 +54,21 @@ const Card = ({
           </div>
         )}
 
+        {/* Links */}
         {links && (
           <div className={styles.linksList}>
-            {links.map((link, index) => {
+            {links.map((Link, index) => {
               return (
                 <div className={styles.linksItem} key={index}>
-                  <a>{link.label}</a>
+                  <Link.icon className={styles.icon} />
+                  <a>{Link.label}</a>
                 </div>
               );
             })}
           </div>
         )}
 
+        {/* Sections */}
         {sections && (
           <div className={styles.sectionsList}>
             {sections.map((section, index) => {
@@ -71,15 +76,45 @@ const Card = ({
                 <div className={styles.sectionsItem} key={index}>
                   <dt>{section.label}</dt>
                   <div className={styles.buttons}>
-                    {section.buttons.map((button, id) => (
+                    {section.buttons.map((Button, id) => (
                       <button className={styles.actionButton} key={id}>
-                        {button}
+                        <Button.icon className={styles.icon} />
+                        {Button.label}
                       </button>
                     ))}
                   </div>
                 </div>
               );
             })}
+          </div>
+        )}
+
+        {/* Table */}
+        {table && (
+          <div className={styles.tableList}>
+            <div className={styles.tableInfo}>
+              <table className={styles.table}>
+                <thead>
+                  <tr>
+                    {table.columns.map((col, index) => (
+                      <th key={index}>{col}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {table.rows.map((row, index) => (
+                    <tr key={index}>
+                      {row.map((cell, cIdx) => (
+                        <td key={cIdx}>{cell}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className={styles.tableFooter}>
+              <button className={styles.endpointButton}>Test</button>
+            </div>
           </div>
         )}
       </div>
