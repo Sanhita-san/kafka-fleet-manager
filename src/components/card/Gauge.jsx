@@ -8,7 +8,7 @@ const Gauge = ({ value, text }) => {
         nrOfLevels={30} // number of arc segments
         colors={["#4FAFE0", "#0A3F5C"]} // gradient colors
         arcWidth={0.3} // thickness of arc
-        percent={value / 100} // converts value to percentage
+        percent={value / 500} // converts value to percentage
         needleColor="#3B3B3B"
         textColor="#000"
         formatTextValue={() => text} // center label text

@@ -1,20 +1,7 @@
 import styles from "./Card.module.css";
 
-import { FaCloud } from "react-icons/fa";
 import { MdMoreVert } from "react-icons/md";
-import { MdBarChart } from "react-icons/md";
-import { MdEqualizer } from "react-icons/md";
-import { MdBusiness } from "react-icons/md";
-import { BsGrid1X2Fill } from "react-icons/bs";
 import Gauge from "./Gauge";
-
-const icons = {
-  cluster: <FaCloud className={styles.icon} />,
-  performance: <MdBarChart className={styles.icon} />,
-  kubernetes: <MdBusiness className={styles.icon} />,
-  dashboard: <MdEqualizer className={styles.icon} />,
-  action: <BsGrid1X2Fill className={styles.icon} />,
-};
 
 const Card = ({
   title,
@@ -25,12 +12,13 @@ const Card = ({
   sections,
   actionsMenu,
 }) => {
+  const Icon = icon;
   return (
     <div
       className={`${styles.card} ${gauges ? styles.spanTwo : styles.spanOne}`}
     >
       <div className={styles.cardHeader}>
-        {icons[icon]}
+        <Icon className={styles.icon} />
         <h3>{title}</h3>
         {actionsMenu && (
           <MdMoreVert className={`${styles.icon} ${styles.moreIcon}`} />
@@ -64,14 +52,17 @@ const Card = ({
           </div>
         )}
 
-        {links &&
-          links.map((data, index) => {
-            return (
-              <div className={styles.infoItem} key={index}>
-                <dt>{data.label}</dt>
-              </div>
-            );
-          })}
+        {links && (
+          <div className={styles.linksList}>
+            {links.map((link, index) => {
+              return (
+                <div className={styles.linksItem} key={index}>
+                  <a>{link.label}</a>
+                </div>
+              );
+            })}
+          </div>
+        )}
 
         {sections && (
           <div className={styles.sectionsList}>
