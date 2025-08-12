@@ -19,15 +19,27 @@
   padding: 20px 0;
 }
 
-.navbar li {
-  color: var(--color-primary);
+.navbar a.active {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+}
+
+.navbar a.inActive {
   background-color: var(--color-bg);
+  color: var(--color-primary);
+}
+
+.navbar li {
+  color: inherit;
+  background-color: inherit;
   padding: 6px;
 }
+
 .navbar li:hover {
   background-color: var(--color-primary);
   color: var(--color-bg);
 }
+
 .bottomNav {
   position: absolute;
   bottom: 0;

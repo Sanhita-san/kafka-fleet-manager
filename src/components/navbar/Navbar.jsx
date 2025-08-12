@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { NavLink } from "react-router";
 
 import styles from "./Navbar.module.css";
 
@@ -8,27 +8,35 @@ import { navLinks, bottomNavLinks } from "./navLinks";
 const Navbar = () => {
   return (
     <nav className={styles.navbar}>
-      <Link to="/">
-        <MdMenu className={styles.menuIcon} />
-      </Link>
+      <MdMenu className={styles.menuIcon} />
 
       <ul>
         {navLinks.map((Icon, index) => (
-          <Link to={Icon.link}>
+          <NavLink
+            to={Icon.link}
+            className={({ isActive }) =>
+              isActive ? styles.active : styles.inActive
+            }
+          >
             <li key={index}>
               <Icon.icon className={styles.icon} />
             </li>
-          </Link>
+          </NavLink>
         ))}
       </ul>
 
       <ul className={styles.bottomNav}>
         {bottomNavLinks.map((Icon, index) => (
-          <Link to={Icon.link}>
+          <NavLink
+            to={Icon.link}
+            className={({ isActive }) =>
+              isActive ? styles.active : styles.inActive
+            }
+          >
             <li key={index}>
               <Icon.icon className={styles.icon} />
             </li>
-          </Link>
+          </NavLink>
         ))}
       </ul>
     </nav>
