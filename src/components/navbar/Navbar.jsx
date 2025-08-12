@@ -1,26 +1,34 @@
+import { Link } from "react-router";
+
 import styles from "./Navbar.module.css";
 
-import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import { MdMenu } from "react-icons/md";
 import { navLinks, bottomNavLinks } from "./navLinks";
 
 const Navbar = () => {
   return (
     <nav className={styles.navbar}>
-      <MenuOutlinedIcon className={styles.menuIcon} />
+      <Link to="/">
+        <MdMenu className={styles.menuIcon} />
+      </Link>
 
       <ul>
         {navLinks.map((Icon, index) => (
-          <li key={index}>
-            <Icon className={styles.icon} />
-          </li>
+          <Link to={Icon.link}>
+            <li key={index}>
+              <Icon.icon className={styles.icon} />
+            </li>
+          </Link>
         ))}
       </ul>
 
       <ul className={styles.bottomNav}>
         {bottomNavLinks.map((Icon, index) => (
-          <li key={index}>
-            <Icon className={styles.icon} />
-          </li>
+          <Link to={Icon.link}>
+            <li key={index}>
+              <Icon.icon className={styles.icon} />
+            </li>
+          </Link>
         ))}
       </ul>
     </nav>

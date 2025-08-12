@@ -13,13 +13,17 @@ import { MdCreditCard } from "react-icons/md";
 import { MdSupportAgent } from "react-icons/md";
 
 export const navLinks = [
-  AiOutlineHome,
-  SiKubernetes,
-  SiApachekafka,
-  MdOutlineSettings,
-  MdOutlineTroubleshoot,
-  MdRocketLaunch,
-  MdOutlineHub,
+  { icon: AiOutlineHome, link: "/" },
+  { icon: SiKubernetes, link: "/" },
+  { icon: SiApachekafka, link: "/clusters" },
+  { icon: MdOutlineSettings, link: "/" },
+  { icon: MdOutlineTroubleshoot, link: "/" },
+  { icon: MdRocketLaunch, link: "/" },
+  { icon: MdOutlineHub, link: "/" },
 ];
 
-export const bottomNavLinks = [MdVpnKey, MdCreditCard, MdSupportAgent];
+export const bottomNavLinks = [
+  { icon: MdVpnKey, link: "/" },
+  { icon: MdCreditCard, link: "/" },
+  { icon: MdSupportAgent, link: "/" },
+];
