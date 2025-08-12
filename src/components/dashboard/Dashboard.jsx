@@ -4,14 +4,14 @@ import { cards } from "./dashboardData.js";
 
 const Dashboard = () => {
   return (
-    <main className={styles.main}>
+    <>
       <h2>Intellectual-Mongoose</h2>
       <div className={styles.dashboard}>
         {cards.map((card, index) => (
           <Card key={index} {...card} />
         ))}
       </div>
-    </main>
+    </>
   );
 };
 
