@@ -17,8 +17,9 @@ const Navbar = () => {
             className={({ isActive }) =>
               isActive ? styles.active : styles.inActive
             }
+            key={index}
           >
-            <li key={index}>
+            <li>
               <Icon.icon className={styles.icon} />
             </li>
           </NavLink>
@@ -32,8 +33,9 @@ const Navbar = () => {
             className={({ isActive }) =>
               isActive ? styles.active : styles.inActive
             }
+            key={index}
           >
-            <li key={index}>
+            <li>
               <Icon.icon className={styles.icon} />
             </li>
           </NavLink>

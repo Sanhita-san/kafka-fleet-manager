@@ -24,6 +24,6 @@ export const navLinks = [
 
 export const bottomNavLinks = [
   { icon: MdVpnKey, link: "/key" },
-  { icon: MdCreditCard, link: "/action" },
+  { icon: MdCreditCard, link: "/billing" },
   { icon: MdSupportAgent, link: "/contact" },
 ];
