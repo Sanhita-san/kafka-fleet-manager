@@ -94,7 +94,7 @@ const Card = ({
             {sections.map((section, index) => {
               return (
                 <div className={styles.sectionsItem} key={index}>
-                  <dt>{section.label}</dt>
+                  {section.label && <dt>{section.label}</dt>}
                   <div className={styles.buttons}>
                     {section.buttons.map((Button, id) => (
                       <button className={styles.actionButton} key={id}>

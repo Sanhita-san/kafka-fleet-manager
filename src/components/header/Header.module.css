@@ -8,16 +8,17 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--color-border);
-  padding: 10px 20px;
+  padding: 15px 20px;
 }
 
 .logo {
   display: flex;
   flex-direction: column;
+  word-break: keep-all;
 }
 
 .title {
-  font-size: 16px;
+  font-size: 20px;
   margin: 0;
   font-weight: 500;
 }
@@ -32,21 +33,12 @@
 .right {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 25px;
   padding: 0 20px;
 }
 
-fieldset {
-  width: 350px;
-  padding: 5px 10px;
-  margin-top: -5px;
-  border: 2px solid var(--color-border);
-}
-
-legend {
-  font-size: 12px;
-  color: var(--color-text-muted);
-  padding: 0 5px;
+.right fieldset {
+  width: auto;
 }
 
 .dropdown {
@@ -59,6 +51,10 @@ legend {
   border-radius: 4px;
 }
 
+.dropdown option:focus {
+  background-color: var(--color-bg-grey);
+}
+
 .icon {
   font-size: 24px;
   cursor: pointer;
@@ -68,4 +64,16 @@ legend {
 .profile {
   color: var(--color-border);
   font-size: 32px;
+}
+
+/* Media Queries */
+@media screen and (max-width: 600px) {
+  .topHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-border);
+    padding: 10px 20px;
+  }
 }

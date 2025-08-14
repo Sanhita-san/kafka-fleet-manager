@@ -13,6 +13,7 @@ import { Chip, Stack } from "@mui/material";
 // Icon
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { BsSortAlphaDown, BsSortAlphaUp } from "react-icons/bs";
+import { IoEye } from "react-icons/io5";
 
 // Color code
 const getUsageLevel = (value) =>
@@ -24,22 +25,28 @@ const getAmountLevel = (value) =>
 // Main Component
 export default function BillingTable() {
   // Date pick logic
-  const [startDate, setStartDate] = useState(dayjs("2025-01-01"));
-  const [endDate, setEndDate] = useState(dayjs("2025-08-17"));
-  const handlePreset = (preset) => {
-    const today = new Date();
-    let start, end;
+  const today = new Date();
+  const firstDayOfYear = new Date(today.getFullYear(), 0, 1);
 
-    if (preset === "thisMonth") {
-      start = new Date(today.getFullYear(), today.getMonth(), 1);
-      end = today;
-    } else if (preset === "lastMonth") {
-      start = new Date(today.getFullYear(), today.getMonth() - 1, 1);
-      end = new Date(today.getFullYear(), today.getMonth(), 0);
-    } else if (preset === "last30") {
+  const [startDate, setStartDate] = useState(dayjs(firstDayOfYear));
+  const [endDate, setEndDate] = useState(dayjs(today));
+
+  const handlePreset = (preset) => {
+    let start, end;
+    end = today;
+
+    if (preset === "lastWeek") {
       start = new Date(today);
-      start.setDate(start.getDate() - 30);
-      end = today;
+      start.setDate(today.getDate() - 7);
+    } else if (preset === "lastMonth") {
+      start = new Date(
+        today.getFullYear(),
+        today.getMonth() - 1,
+        today.getDate()
+      );
+    } else if (preset === "lastQuarter") {
+      start = new Date(today);
+      start.setMonth(today.getMonth() - 3);
     }
 
     setStartDate(dayjs(start.toISOString().slice(0, 10)));
@@ -117,16 +124,16 @@ export default function BillingTable() {
               {/* Date Pick Presets */}
               <Stack direction="row" spacing={1}>
                 <Chip
-                  label="This Month"
-                  onClick={() => handlePreset("thisMonth")}
+                  label="Last Week"
+                  onClick={() => handlePreset("lastWeek")}
                 />
                 <Chip
                   label="Last Month"
                   onClick={() => handlePreset("lastMonth")}
                 />
                 <Chip
-                  label="Last 30 Days"
-                  onClick={() => handlePreset("last30")}
+                  label="Last Quarter"
+                  onClick={() => handlePreset("lastQuarter")}
                 />
               </Stack>
             </div>
@@ -171,7 +178,9 @@ export default function BillingTable() {
                   onClick={() => toggle(group.id)}
                   aria-expanded={!!open[group.id]}
                 >
-                  <td>{group.service}</td>
+                  <td className={styles.serviceGroup}>
+                    {group.service} <IoEye className={styles.eyeIcon} />
+                  </td>
                   <td></td>
                   <td></td>
                   <td
