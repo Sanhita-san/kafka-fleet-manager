@@ -54,7 +54,7 @@ a {
   color: var(--color-text);
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 10px;
+  gap: 12px;
 }
 
 .fieldsItem {
@@ -65,6 +65,10 @@ a {
   color: var(--color-text-muted);
   text-align: left;
   font-weight: 500;
+}
+
+.fieldImg {
+  width: 70px;
 }
 
 /* For Gauge Card */

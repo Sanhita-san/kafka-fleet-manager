@@ -16,6 +16,8 @@ import { MdLink } from "react-icons/md";
 
 import { MdTimeline } from "react-icons/md";
 
+import imgUrl from "../../assets/images/Oracle-Cloud.webp";
+
 export const cards = [
   {
     title: "Cluster Info",
@@ -26,13 +28,13 @@ export const cards = [
         label: "Cluster ID",
         value: "9a02fc10-2100-45f9-a0ff-2ff9bbbe8d61",
       },
-      { label: "SKU", value: "STRIMZI/Shared" },
-      { label: "Organization", value: "acme" },
-      { label: "Date Created", value: "Jun 17, 2025, 11:53 AM" },
-      { label: "Date Modified", value: "Jun 17, 2025, 12:05 PM" },
-      { label: "Infrastructure", value: "different-aardwolf" },
-      { label: "Version", value: "3.8.0" },
-      { label: "Status", value: "Healthy" },
+      { label: "SKU", value: "STRIMZI/Shared", type: "text" },
+      { label: "Organization", value: "acme", type: "text" },
+      { label: "Date Created", value: "Jun 17, 2025, 11:53 AM", type: "text" },
+      { label: "Date Modified", value: "Jun 17, 2025, 12:05 PM", type: "text" },
+      { label: "Infrastructure", value: "different-aardwolf", type: "text" },
+      { label: "Version", value: "3.8.0", type: "text" },
+      { label: "Status", value: "Healthy", type: "text" },
     ],
   },
   {
@@ -50,11 +52,15 @@ export const cards = [
     icon: MdBusiness,
     actionsMenu: true,
     fields: [
-      { label: "Identifier", value: "different-aardwolf" },
-      { label: "Fleet provider", value: "" },
-      { label: "Tenancy", value: "Shared" },
-      { label: "Date Created", value: "Jun 17, 2025, 10:33 AM" },
-      { label: "Status", value: "Healthy" },
+      { label: "Identifier", value: "different-aardwolf", type: "link" },
+      {
+        label: "Fleet provider",
+        value: imgUrl,
+        type: "img",
+      },
+      { label: "Tenancy", value: "Shared", type: "text" },
+      { label: "Date Created", value: "Jun 17, 2025, 10:33 AM", type: "text" },
+      { label: "Status", value: "Healthy", type: "text" },
     ],
   },
   {

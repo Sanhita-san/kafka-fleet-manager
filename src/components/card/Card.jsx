@@ -47,7 +47,13 @@ const Card = ({
               return (
                 <div className={styles.fieldsItem} key={index}>
                   <dt>{data.label}</dt>
-                  <dd>{data.value}</dd>
+                  <dd>
+                    {data.type == "text" && data.value}
+                    {data.type == "link" && <a>{data.value}</a>}
+                    {data.type == "img" && (
+                      <img src={data.value} className={styles.fieldImg} />
+                    )}
+                  </dd>
                 </div>
               );
             })}
