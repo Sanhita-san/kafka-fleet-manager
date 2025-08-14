@@ -4,6 +4,37 @@
   gap: 20px;
 }
 
+.tabs {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 10px;
+}
+
+.tab {
+  padding: 8px 0;
+  cursor: pointer;
+  color: var(--color-text-muted);
+}
+
+.active {
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.tabsData {
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fleetName {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+}
+
 .headerInfo {
   padding: 20px 0;
   border-top: 1px solid var(--color-border);
@@ -39,6 +70,7 @@
 
 /* table */
 .table {
+  margin-top: 10px;
   width: 100%;
   border: 1px solid var(--color-border);
   border-radius: 5px;
