@@ -8,16 +8,33 @@
   padding: 20px 0;
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.datePicker {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .dateContainer {
   display: flex;
   gap: 20px;
-  margin-top: 10px;
+  margin-top: -10px;
 }
 
 .dateContainer fieldset {
   width: auto;
+}
+
+.totalAmount {
+  text-align: end;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
 }
 
 /* table */
@@ -27,6 +44,7 @@
   border-radius: 5px;
   border-spacing: 0px;
   overflow: hidden;
+  table-layout: fixed;
 }
 
 tbody {
@@ -49,12 +67,39 @@ tbody {
 th:first-child,
 td:first-child {
   padding-left: 60px;
+  width: calc(200% / 4);
 }
 
 tbody tr:hover {
   background: #fafafa;
 }
 
+/* Styling Amount Column */
+.filterCol {
+  display: flex;
+  gap: 5px;
+  cursor: pointer;
+  justify-content: space-between;
+}
+
+.filterIcon {
+  justify-self: end;
+  font-size: 20px;
+  color: var(--color-text-muted);
+  opacity: 0;
+  transition: opacity 10ms;
+}
+
+.filterCol:hover .filterIcon {
+  opacity: 100;
+}
+
+/* Making amount column data bold */
+.amountCol {
+  font-weight: bold;
+}
+
+/* Grouping Row */
 tr.toggleRow {
   background: var(--color-bg-grey);
   cursor: pointer;
@@ -64,17 +109,13 @@ tr.toggleRow:hover {
   background: var(--color-bg-grey);
 }
 
-.amtCol {
-  font-weight: bold;
-}
-
 /* Color Levels */
 .green {
   color: green;
 }
 
 .orange {
-  color: orange;
+  color: #ca8300;
 }
 .red {
   color: red;
@@ -85,4 +126,26 @@ tr.toggleRow:hover {
   position: absolute;
   top: 15px;
   left: 15px;
+}
+
+.open {
+  transform: rotate(180deg);
+  transition: transform 0.5s;
+}
+
+.closed {
+  transition: transform 0.5s;
+}
+
+.openGroup {
+  display: table-row;
+  transition: display 1s;
+}
+.openGroup td:first-child {
+  padding-left: 90px;
+}
+
+.closedGroup {
+  display: none;
+  transition: display 1s;
 }
