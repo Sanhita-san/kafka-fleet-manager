@@ -1,7 +1,10 @@
+import { useState } from "react";
+
 import styles from "./Card.module.css";
 
-import { MdMoreVert } from "react-icons/md";
+import { MdMoreVert, MdSearch } from "react-icons/md";
 import Gauge from "./Gauge";
+import BarChart from "./BarChart";
 
 const Card = ({
   title,
@@ -12,9 +15,20 @@ const Card = ({
   sections,
   actionsMenu,
   table,
+  chart,
   span,
 }) => {
   const Icon = icon;
+
+  const [searchTerm, setSearchTerm] = useState("");
+  // Assuming address is at column index 2
+  const ADDRESS_INDEX = 1;
+  // Filtered rows based on address
+  const filteredRows =
+    table?.rows.filter((row) =>
+      row[ADDRESS_INDEX]?.toLowerCase().includes(searchTerm.toLowerCase())
+    ) || [];
+
   return (
     <div className={`${styles.card} ${span ? styles.spanTwo : styles.spanOne}`}>
       <div className={styles.cardHeader}>
@@ -89,9 +103,34 @@ const Card = ({
           </div>
         )}
 
+        {/* Chart */}
+        {chart && (
+          <div className="chart">
+            <BarChart
+              current={chart.data[0]}
+              expected={chart.data[0]}
+              label={chart.label}
+            />
+          </div>
+        )}
+
         {/* Table */}
         {table && (
           <div className={styles.tableList}>
+            {/* Search bar */}
+            <div className={styles.searchBar}>
+              <div className={styles.searchWrapper}>
+                <MdSearch className={styles.searchIcon} />
+                <input
+                  type="text"
+                  placeholder="Search by address..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className={styles.searchInput}
+                />
+              </div>
+            </div>
+            {/* Main Table */}
             <div className={styles.tableInfo}>
               <table className={styles.table}>
                 <thead>
@@ -102,7 +141,7 @@ const Card = ({
                   </tr>
                 </thead>
                 <tbody>
-                  {table.rows.map((row, index) => (
+                  {filteredRows.map((row, index) => (
                     <tr key={index}>
                       {row.map((cell, cIdx) => (
                         <td key={cIdx}>{cell}</td>
@@ -112,6 +151,7 @@ const Card = ({
                 </tbody>
               </table>
             </div>
+            {/* Table Footer */}
             <div className={styles.tableFooter}>
               <button className={styles.endpointButton}>Test</button>
             </div>

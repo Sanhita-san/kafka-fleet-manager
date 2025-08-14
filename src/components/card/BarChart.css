@@ -1,0 +1,9 @@
+.barChartContainer .MuiChartsAxis-tickLabel tspan {
+  letter-spacing: 0;
+  font-size: 14px;
+}
+
+.barChartContainer {
+  height: 300px;
+  margin-top: 20px;
+}

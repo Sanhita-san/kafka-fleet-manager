@@ -92,7 +92,14 @@ export const cards = [
       },
     ],
   },
-  { title: "Billing", icon: MdAttachMoney },
+  {
+    title: "Billing",
+    icon: MdAttachMoney,
+    chart: {
+      label: "June 2025 Billing (undefined)",
+      data: [0, 0],
+    },
+  },
   {
     title: "Endpoints",
     icon: MdLink,

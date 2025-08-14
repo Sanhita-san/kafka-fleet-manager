@@ -133,6 +133,43 @@ a {
 }
 
 /* For Table Card */
+
+/* Search Bar */
+.searchBar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.searchWrapper {
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: var(--color-primary);
+  font-size: 20px;
+  pointer-events: none;
+}
+
+.searchInput {
+  padding: 10px 10px 10px 40px;
+  border: 2px solid var(--color-border);
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.searchInput:focus {
+  border-color: var(--color-primary);
+  /* box-shadow: 0 0 4px rgba(25, 118, 210, 0.4); */
+}
+
+/* Main Table */
 .tableInfo {
   overflow-x: auto;
 }
@@ -165,9 +202,10 @@ a {
 }
 
 .table tr:hover {
-  background: #fafafa;
+  background-color: #fafafa;
 }
 
+/* Table Footer */
 .tableFooter {
   display: flex;
   justify-content: flex-end;
@@ -183,7 +221,7 @@ a {
   border: none;
   border-radius: 2px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .endpointButton:hover {
@@ -191,6 +229,7 @@ a {
   opacity: 80%;
 }
 
+/* Responsive Screen */
 @media screen and (max-width: 960px) {
   .spanTwo {
     grid-column: span 1;
