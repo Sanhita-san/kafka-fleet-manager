@@ -146,72 +146,74 @@ export default function BillingTable() {
           </div>
 
           {/* Billing Table */}
-          <table className={styles.table}>
-            {/* Table Header */}
-            <thead className={styles.tableHeader}>
-              <tr>
-                <th>Services</th>
-                <th>Unit Charges in $</th>
-                <th>Usage</th>
-                <th className={styles.filterCol} onClick={toggleSort}>
-                  Amount ($)
-                  {sortDir === "asc" && (
-                    <BsSortAlphaDown className={styles.filterIcon} />
-                  )}
-                  {sortDir === "desc" && (
-                    <BsSortAlphaUp className={styles.filterIcon} />
-                  )}
-                </th>
-              </tr>
-            </thead>
-
-            {/* Table Data */}
-            {sortedData.map((group) => (
-              <tbody key={group.id}>
-                <MdKeyboardArrowDown
-                  className={`${styles.icon} ${open[group.id] ? styles.open : styles.closed}`}
-                  onClick={() => toggle(group.id)}
-                  aria-expanded={!!open[group.id]}
-                />
-                <tr
-                  className={styles.toggleRow}
-                  onClick={() => toggle(group.id)}
-                  aria-expanded={!!open[group.id]}
-                >
-                  <td className={styles.serviceGroup}>
-                    {group.service} <IoEye className={styles.eyeIcon} />
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td
-                    className={`${styles.amountCol} ${getAmountLevel(group.totalAmount)}`}
-                  >
-                    {group.totalAmount}
-                  </td>
+          <div className={styles.tableData}>
+            <table className={styles.table}>
+              {/* Table Header */}
+              <thead className={styles.tableHeader}>
+                <tr>
+                  <th>Services</th>
+                  <th>Unit Charges in $</th>
+                  <th>Usage</th>
+                  <th className={styles.filterCol} onClick={toggleSort}>
+                    Amount ($)
+                    {sortDir === "asc" && (
+                      <BsSortAlphaDown className={styles.filterIcon} />
+                    )}
+                    {sortDir === "desc" && (
+                      <BsSortAlphaUp className={styles.filterIcon} />
+                    )}
+                  </th>
                 </tr>
+              </thead>
 
-                {group.children.map((child) => (
+              {/* Table Data */}
+              {sortedData.map((group) => (
+                <tbody key={group.id}>
+                  <MdKeyboardArrowDown
+                    className={`${styles.icon} ${open[group.id] ? styles.open : styles.closed}`}
+                    onClick={() => toggle(group.id)}
+                    aria-expanded={!!open[group.id]}
+                  />
                   <tr
-                    key={child.id}
-                    className={
-                      open[group.id] ? styles.openGroup : styles.closedGroup
-                    }
+                    className={styles.toggleRow}
+                    onClick={() => toggle(group.id)}
+                    aria-expanded={!!open[group.id]}
                   >
-                    <td>{child.name}</td>
-                    <td>{child.unitCharge}</td>
-                    <td className={getUsageLevel(child.usage)}>
-                      {child.usage}
+                    <td className={styles.serviceGroup}>
+                      {group.service} <IoEye className={styles.eyeIcon} />
                     </td>
+                    <td></td>
+                    <td></td>
                     <td
-                      className={`${styles.amountCol} ${getAmountLevel(child.amount)}`}
+                      className={`${styles.amountCol} ${getAmountLevel(group.totalAmount)}`}
                     >
-                      {child.amount}
+                      {group.totalAmount}
                     </td>
                   </tr>
-                ))}
-              </tbody>
-            ))}
-          </table>
+
+                  {group.children.map((child) => (
+                    <tr
+                      key={child.id}
+                      className={
+                        open[group.id] ? styles.openGroup : styles.closedGroup
+                      }
+                    >
+                      <td>{child.name}</td>
+                      <td>{child.unitCharge}</td>
+                      <td className={getUsageLevel(child.usage)}>
+                        {child.usage}
+                      </td>
+                      <td
+                        className={`${styles.amountCol} ${getAmountLevel(child.amount)}`}
+                      >
+                        {child.amount}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              ))}
+            </table>
+          </div>
         </div>
       </div>
     </div>
