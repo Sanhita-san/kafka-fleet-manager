@@ -25,32 +25,26 @@ const getAmountLevel = (value) =>
 // Main Component
 export default function BillingTable() {
   // Date pick logic
-  const today = new Date();
-  const firstDayOfYear = new Date(today.getFullYear(), 0, 1);
+  const today = dayjs();
+  const firstDayOfYear = dayjs(new Date(today.year(), 0, 1));
 
-  const [startDate, setStartDate] = useState(dayjs(firstDayOfYear));
-  const [endDate, setEndDate] = useState(dayjs(today));
+  const [startDate, setStartDate] = useState(firstDayOfYear);
+  const [endDate, setEndDate] = useState(today);
 
   const handlePreset = (preset) => {
-    let start, end;
-    end = today;
+    let start = today;
+    let end = today;
 
     if (preset === "lastWeek") {
-      start = new Date(today);
-      start.setDate(today.getDate() - 7);
+      start = today.subtract(7, "day");
     } else if (preset === "lastMonth") {
-      start = new Date(
-        today.getFullYear(),
-        today.getMonth() - 1,
-        today.getDate()
-      );
+      start = today.subtract(1, "month");
     } else if (preset === "lastQuarter") {
-      start = new Date(today);
-      start.setMonth(today.getMonth() - 3);
+      start = today.subtract(3, "month");
     }
 
-    setStartDate(dayjs(start.toISOString().slice(0, 10)));
-    setEndDate(dayjs(end.toISOString().slice(0, 10)));
+    setStartDate(start);
+    setEndDate(end);
   };
 
   // Accordion logic
@@ -102,6 +96,7 @@ export default function BillingTable() {
                 <div className={styles.dateContainer}>
                   <DatePicker
                     label="Start"
+                    format="MMM D, YYYY" // <-- ensures display format
                     slotProps={{
                       textField: { size: "small" },
                       actionBar: { actions: ["today"] },
@@ -111,6 +106,7 @@ export default function BillingTable() {
                   />
                   <DatePicker
                     label="End"
+                    format="MMM D, YYYY" // <-- ensures display format
                     slotProps={{
                       textField: { size: "small" },
                       actionBar: { actions: ["today"] },
