@@ -15,7 +15,7 @@ import { Box, InputLabel, MenuItem, FormControl, Select } from "@mui/material";
 
 const Header = () => {
   const location = useLocation();
-  const [breadcrumbs, setBreadcrumbs] = useState([<p>Home</p>]);
+  const [breadcrumbs, setBreadcrumbs] = useState([<a>Home</a>]);
 
   const [organization, setOrganization] = useState("Acme Fleet");
   const handleChange = (event) => {
@@ -28,17 +28,17 @@ const Header = () => {
 
     if (lastSegment === "clusters") {
       setBreadcrumbs([
-        <p key="home">Home</p>,
-        <p key="cluster">Cluster</p>,
-        <p key="intelligence">Intelligence Mongoose</p>,
+        <a key="home">Home</a>,
+        <a key="cluster">Cluster</a>,
+        <a key="intelligence">Intelligence Mongoose</a>,
       ]);
     } else if (lastSegment === "billing") {
-      setBreadcrumbs([<p key="home">Home</p>, <p key="billing">Billing</p>]);
+      setBreadcrumbs([<a key="home">Home</a>, <a key="billing">Billing</a>]);
     } else {
       // Default
       setBreadcrumbs([
-        <p key="home">Home</p>,
-        <p key={lastSegment}>{lastSegment}</p>,
+        <a key="home">Home</a>,
+        <a key={lastSegment}>{lastSegment}</a>,
       ]);
     }
   }, [location]);

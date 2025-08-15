@@ -129,6 +129,7 @@ const Card = ({
                 <MdSearch className={styles.searchIcon} />
                 <input
                   type="text"
+                  id="endpoints-input"
                   placeholder="Search by address..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}

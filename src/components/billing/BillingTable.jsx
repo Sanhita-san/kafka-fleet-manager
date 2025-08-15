@@ -165,17 +165,15 @@ export default function BillingTable() {
               {/* Table Data */}
               {sortedData.map((group) => (
                 <tbody key={group.id}>
-                  <MdKeyboardArrowDown
-                    className={`${styles.icon} ${open[group.id] ? styles.open : styles.closed}`}
-                    onClick={() => toggle(group.id)}
-                    aria-expanded={!!open[group.id]}
-                  />
                   <tr
                     className={styles.toggleRow}
                     onClick={() => toggle(group.id)}
                     aria-expanded={!!open[group.id]}
                   >
                     <td className={styles.serviceGroup}>
+                      <MdKeyboardArrowDown
+                        className={`${styles.icon} ${open[group.id] ? styles.open : styles.closed}`}
+                      />
                       {group.service} <IoEye className={styles.eyeIcon} />
                     </td>
                     <td></td>
