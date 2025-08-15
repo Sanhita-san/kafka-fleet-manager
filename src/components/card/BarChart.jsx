@@ -32,6 +32,9 @@ export default function BillingBarChart({ current, expected, label }) {
           "& .MuiChartsAxis-label": {
             transform: "translateX(10px)",
           },
+          "& .MuiChartsAxisHighlight-root": {
+            transform: "translateX(-20px)",
+          },
         }}
         xAxis={[{ data: categories }]}
         yAxis={[{ label: "Amount(undefined)" }]}

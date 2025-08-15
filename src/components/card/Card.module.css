@@ -18,6 +18,7 @@
 
 a {
   color: var(--color-primary);
+  cursor: pointer;
 }
 
 .cardHeader {

@@ -1,9 +1,11 @@
+import styles from "./Navbar.module.css";
+import { navLinks, bottomNavLinks } from "./navLinks";
+
+// Dependencies
 import { NavLink } from "react-router";
 
-import styles from "./Navbar.module.css";
-
+// Icons
 import { MdMenu } from "react-icons/md";
-import { navLinks, bottomNavLinks } from "./navLinks";
 
 const Navbar = () => {
   return (

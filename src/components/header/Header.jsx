@@ -36,7 +36,10 @@ const Header = () => {
       setBreadcrumbs([<p key="home">Home</p>, <p key="billing">Billing</p>]);
     } else {
       // Default
-      setBreadcrumbs([<p key="home">Home</p>]);
+      setBreadcrumbs([
+        <p key="home">Home</p>,
+        <p key={lastSegment}>{lastSegment}</p>,
+      ]);
     }
   }, [location]);
 
@@ -110,6 +113,7 @@ const Header = () => {
           padding: "5px 20px",
           color: "var(--color-primary)",
           fontSize: "14px",
+          textTransform: "capitalize",
         }}
       >
         {breadcrumbs}

@@ -13,17 +13,17 @@ import { MdCreditCard } from "react-icons/md";
 import { MdSupportAgent } from "react-icons/md";
 
 export const navLinks = [
-  { icon: AiOutlineHome, link: "/home" },
-  { icon: SiKubernetes, link: "/kubernetes" },
-  { icon: SiApachekafka, link: "/clusters" },
-  { icon: MdOutlineSettings, link: "/settings" },
-  { icon: MdOutlineTroubleshoot, link: "/troubleshoot" },
-  { icon: MdRocketLaunch, link: "/launch" },
-  { icon: MdOutlineHub, link: "/hub" },
+  { name: "Home", icon: AiOutlineHome, link: "/home" },
+  { name: "Kubernetes", icon: SiKubernetes, link: "/kubernetes" },
+  { name: "Clusters", icon: SiApachekafka, link: "/clusters" },
+  { name: "Setting", icon: MdOutlineSettings, link: "/settings" },
+  { name: "Troubleshoot", icon: MdOutlineTroubleshoot, link: "/troubleshoot" },
+  { name: "Launch", icon: MdRocketLaunch, link: "/launch" },
+  { name: "Hub", icon: MdOutlineHub, link: "/hub" },
 ];
 
 export const bottomNavLinks = [
-  { icon: MdVpnKey, link: "/key" },
-  { icon: MdCreditCard, link: "/billing" },
-  { icon: MdSupportAgent, link: "/contact" },
+  { name: "Key", icon: MdVpnKey, link: "/key" },
+  { name: "Billing", icon: MdCreditCard, link: "/billing" },
+  { name: "Contact", icon: MdSupportAgent, link: "/contact" },
 ];
